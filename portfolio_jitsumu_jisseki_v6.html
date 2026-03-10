@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実務実績書 — 北杜市・新進気鋭作家 企画展プロジェクト</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --paper: #f5f0e8;
+    --warm-mid: #c8b99a;
+    --accent: #8b4513;
+    --accent-light: #d4956a;
+    --pale: #ede8df;
+    --rule: rgba(26,23,20,0.15);
+    --rule-strong: rgba(26,23,20,0.35);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Serif JP','Times New Roman',serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;background:rgba(245,240,232,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);display:flex;align-items:center;padding:0 48px;}
+  .nav-logo{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:var(--ink);letter-spacing:0.05em;margin-right:32px;flex-shrink:0;}
+  .nav-sep{width:1px;height:18px;background:var(--rule);margin-right:32px;flex-shrink:0;}
+  .nav-links{display:flex;overflow-x:auto;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-a{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(26,23,20,0.45);text-decoration:none;padding:0 16px;height:48px;display:flex;align-items:center;white-space:nowrap;position:relative;transition:color .2s;}
+  .nav-a:hover{color:var(--ink);}
+  .nav-a.on{color:var(--accent);}
+  .nav-a.on::after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:var(--accent);}
+
+  /* COVER */
+  .cover{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+  .cover-left{background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 72px;position:relative;}
+  .cover-left::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.03) 39px,rgba(255,255,255,0.03) 40px);pointer-events:none;}
+  .cover-eyebrow{font-family:'Cormorant Garamond',serif;font-size:.75rem;letter-spacing:.3em;color:var(--warm-mid);text-transform:uppercase;margin-bottom:32px;opacity:0;animation:fadeUp .8s .2s forwards;}
+  .cover-title-jp{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);color:#fff;line-height:1.4;letter-spacing:.05em;opacity:0;animation:fadeUp .8s .4s forwards;}
+  .cover-title-en{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--warm-mid);margin-top:20px;letter-spacing:.08em;opacity:0;animation:fadeUp .8s .6s forwards;}
+  .cover-meta{margin-top:60px;border-top:1px solid rgba(255,255,255,.15);padding-top:28px;opacity:0;animation:fadeUp .8s .8s forwards;}
+  .cover-meta-item{font-family:'Cormorant Garamond',serif;font-size:.8rem;color:var(--warm-mid);letter-spacing:.2em;line-height:2.2;}
+  .cover-meta-item span{color:rgba(255,255,255,.7);margin-left:1.5em;}
+  .cover-right{background:var(--pale);display:flex;flex-direction:column;justify-content:center;padding:80px 72px 80px 80px;position:relative;}
+  .cover-number{font-family:'DM Serif Display',serif;font-size:18vw;color:rgba(26,23,20,.05);position:absolute;right:-.05em;bottom:-.1em;line-height:1;pointer-events:none;user-select:none;}
+  .cover-concept-label{font-family:'Cormorant Garamond',serif;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;opacity:0;animation:fadeUp .8s .5s forwards;}
+  .cover-concept-text{font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(1rem,1.8vw,1.25rem);line-height:2;color:var(--ink);max-width:380px;opacity:0;animation:fadeUp .8s .7s forwards;}
+  .cover-result-bar{margin-top:56px;display:flex;flex-direction:column;gap:28px;opacity:0;animation:fadeUp .8s .9s forwards;}
+  .result-kpi{display:flex;align-items:baseline;gap:12px;}
+  .result-kpi-number{font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--accent);line-height:1;}
+  .result-kpi-unit{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--accent-light);}
+  .result-kpi-label{font-size:.8rem;color:rgba(26,23,20,.55);letter-spacing:.1em;display:block;margin-top:4px;}
+
+  /* SECTIONS */
+  .section{padding:120px 0;}
+  .section-inner{max-width:1080px;margin:0 auto;padding:0 72px;}
+  .section-header{display:flex;align-items:flex-start;gap:48px;margin-bottom:72px;}
+  .section-num{font-family:'DM Serif Display',serif;font-style:italic;font-size:4rem;color:rgba(26,23,20,.1);line-height:1;flex-shrink:0;margin-top:-8px;}
+  .section-label{font-family:'Cormorant Garamond',serif;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .section-title{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.05em;line-height:1.4;}
+  .divider{width:100%;height:1px;background:var(--rule);}
+  .divider-strong{height:2px;background:var(--rule-strong);}
+
+  /* CONCEPT */
+  .concept-body{display:grid;grid-template-columns:1fr 2fr;gap:72px;}
+  .concept-side-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(26,23,20,.45);letter-spacing:.15em;line-height:2;}
+  .concept-pull-quote{font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(1.1rem,2vw,1.35rem);line-height:2.1;border-left:3px solid var(--accent);padding-left:32px;margin-bottom:36px;}
+  .concept-body-text{font-size:.9rem;line-height:2.2;color:rgba(26,23,20,.75);padding-left:32px;}
+
+  /* RESULTS */
+  .results-section{background:var(--ink);}
+  .results-section .section-label{color:var(--warm-mid);}
+  .results-section .section-title{color:#fff;}
+  .results-section .section-num{color:rgba(255,255,255,.08);}
+  .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);}
+  .result-card{background:var(--ink);padding:56px 52px;position:relative;overflow:hidden;}
+  .result-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);opacity:0;transition:opacity .3s;}
+  .result-card:hover::before{opacity:1;}
+  .result-card-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.3em;color:var(--warm-mid);text-transform:uppercase;margin-bottom:20px;}
+  .result-card-number{font-family:'DM Serif Display',serif;font-size:5rem;color:#fff;line-height:1;margin-bottom:8px;}
+  .result-card-number sup{font-size:2rem;vertical-align:top;margin-top:12px;display:inline-block;}
+  .result-card-unit{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--accent-light);}
+  .result-card-desc{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:16px;line-height:1.9;max-width:280px;}
+
+  /* BUDGET */
+  .budget-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;}
+  .budget-total-block{margin-bottom:48px;}
+  .budget-total-label{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(26,23,20,.45);margin-bottom:8px;}
+  .budget-total-num{font-family:'DM Serif Display',serif;font-size:3.5rem;color:var(--ink);line-height:1;}
+  .budget-total-unit{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(26,23,20,.5);margin-left:8px;}
+  .budget-bars{margin-top:40px;display:flex;flex-direction:column;gap:20px;}
+  .budget-bar-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .budget-bar-name{font-size:.8rem;letter-spacing:.05em;}
+  .budget-bar-value{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent);}
+  .budget-bar-track{height:6px;background:rgba(26,23,20,.08);overflow:hidden;}
+  .budget-bar-fill{height:100%;background:var(--accent);transform-origin:left;animation:barGrow 1s cubic-bezier(.16,1,.3,1) forwards;transform:scaleX(0);}
+  @keyframes barGrow{to{transform:scaleX(1);}}
+  .reinvest-label{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .reinvest-label::after{content:'';flex:1;height:1px;background:rgba(26,23,20,.15);}
+  .reinvest-item{padding:20px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:start;}
+  .reinvest-index{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;color:rgba(26,23,20,.3);margin-top:2px;}
+  .reinvest-title{font-size:.85rem;font-weight:600;line-height:1.6;}
+  .reinvest-title small{display:block;font-weight:400;font-size:.78rem;color:rgba(26,23,20,.55);margin-top:4px;}
+  .reinvest-amount{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent);white-space:nowrap;}
+
+  /* CRISIS */
+  .crisis-section{background:var(--pale);}
+  .crisis-timeline{position:relative;padding-left:40px;}
+  .crisis-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--rule-strong);}
+  .crisis-item{position:relative;padding:0 0 52px;}
+  .crisis-item::before{content:'';position:absolute;left:-44px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--pale),0 0 0 4px var(--accent);}
+  .crisis-item-phase{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .crisis-item-title{font-family:'Shippori Mincho',serif;font-weight:600;font-size:1.05rem;margin-bottom:12px;letter-spacing:.05em;}
+  .crisis-item-body{font-size:.88rem;line-height:2.1;color:rgba(26,23,20,.7);max-width:560px;}
+
+  /* 意思決定フロー */
+  .decision-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border:1px solid var(--rule-strong);}
+  .df-step{padding:24px 20px;position:relative;border-right:1px solid var(--rule-strong);}
+  .df-step:last-child{border-right:none;}
+  .df-step-label{font-family:'Cormorant Garamond',serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .df-step-head{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.92rem;letter-spacing:.04em;margin-bottom:10px;color:var(--ink);}
+  .df-step-body{font-size:.8rem;line-height:1.9;color:rgba(26,23,20,.65);}
+  .df-arrow{position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:12px solid var(--accent);z-index:2;}
+  .df-step:last-child .df-arrow{display:none;}
+  .df-outcome{background:var(--ink);color:#fff;}
+  .df-outcome .df-step-label{color:var(--warm-mid);}
+  .df-outcome .df-step-head{color:#fff;}
+  .df-outcome .df-step-body{color:rgba(255,255,255,.7);}
+  .df-outcome .df-arrow{border-left-color:var(--ink);}
+  @media(max-width:680px){.decision-flow{grid-template-columns:1fr 1fr;}.df-step:nth-child(2){border-right:none;}.df-step:nth-child(3){border-top:1px solid var(--rule-strong);}.df-step:nth-child(4){border-right:none;border-top:1px solid var(--rule-strong);}.df-arrow{display:none;}}
+
+  /* ===== GANTT ===== */
+  .gantt-scroll{overflow-x:auto;}
+  .gantt-table{border-collapse:collapse;table-layout:fixed;width:100%;min-width:900px;}
+
+  /* ヘッダー */
+  .gantt-table thead th{
+    background:var(--ink);color:var(--warm-mid);
+    font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;
+    padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.07);white-space:nowrap;
+  }
+  .gantt-table thead th.th-task{text-align:left;padding-left:8px;width:180px;}
+  .gantt-table thead th.th-date{width:90px;}
+
+  /* タスク行 */
+  .g-task-row{border-bottom:1px solid var(--rule);}
+  .g-task-row:nth-child(4n+1){background:rgba(26,23,20,.018);}
+  .g-task-cell{padding:14px 8px;font-size:.8rem;vertical-align:middle;}
+  .g-task-cell.col-name{padding-left:8px;}
+  .g-phase-badge{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:.62rem;letter-spacing:.1em;padding:2px 7px;background:var(--ink);color:var(--warm-mid);margin-bottom:5px;white-space:nowrap;}
+  .g-task-name{font-weight:600;color:var(--ink);white-space:nowrap;font-size:.82rem;}
+  .g-date{color:rgba(26,23,20,.42);font-size:.75rem;text-align:center;white-space:nowrap;}
+
+  /* バーセル */
+  .g-bar-cell{padding:10px 3px;vertical-align:middle;}
+  .g-bar{height:11px;border-radius:0;}
+  .g-bar.p1{background:#7a3010;}
+  .g-bar.p2{background:#a05025;}
+  .g-bar.p3{background:#c87848;}
+  .g-bar.p4{background:#b09070;}
+  .g-bar.empty{background:transparent;}
+
+  /* 吹き出し行 */
+  .g-bubble-row td{padding:0;border-bottom:1px solid var(--rule);}
+  .g-bubble-td{padding:0 0 18px 12px;}
+  .g-bubble{
+    display:inline-block;position:relative;
+    background:var(--ink);color:rgba(255,255,255,.82);
+    font-size:.78rem;line-height:1.85;padding:13px 20px;
+    max-width:600px;margin-top:4px;
+  }
+  .g-bubble::before{
+    content:'';position:absolute;top:-9px;left:28px;
+    border:5px solid transparent;border-bottom-color:var(--ink);border-top:none;
+  }
+  .g-bubble .crisis-tag{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:.65rem;letter-spacing:.1em;padding:1px 7px;margin-right:8px;vertical-align:middle;
+  }
+
+  /* 凡例 */
+  .gantt-legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;}
+  .gantt-legend-item{display:flex;align-items:center;gap:8px;font-size:.75rem;color:rgba(26,23,20,.6);}
+  .gantt-legend-dot{width:22px;height:9px;}
+
+  /* FLYER */
+  .flyer-section{background:var(--ink);}
+  .flyer-section .section-label{color:var(--warm-mid);}
+  .flyer-section .section-title{color:#fff;}
+  .flyer-section .section-num{color:rgba(255,255,255,.08);}
+  .flyer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .flyer-card img{width:100%;display:block;border:1px solid rgba(255,255,255,.08);}
+  .flyer-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.25em;color:var(--warm-mid);text-transform:uppercase;margin-top:14px;}
+  .flyer-credit{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:6px;letter-spacing:.08em;}
+
+  /* COLOPHON */
+  .colophon{background:var(--ink);padding:64px 72px;display:flex;justify-content:space-between;align-items:center;}
+  .colophon-left{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:rgba(255,255,255,.4);letter-spacing:.05em;}
+  .colophon-right{font-size:.72rem;letter-spacing:.2em;color:rgba(255,255,255,.3);text-align:right;line-height:2;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:800px){
+    .nav{padding:0 16px;}
+    .cover{grid-template-columns:1fr;}.cover-right{display:none;}.cover-left{padding:60px 32px;min-height:100vh;}
+    .section-inner{padding:0 28px;}.concept-body,.budget-layout,.results-grid,.flyer-grid{grid-template-columns:1fr;}
+    .colophon{flex-direction:column;gap:24px;text-align:center;}.colophon-right{text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-logo">Portfolio</span>
+  <div class="nav-sep"></div>
+  <div class="nav-links">
+    <a class="nav-a" href="chapter0_v6.html">Ch.0 自己紹介</a>
+    <a class="nav-a on" href="portfolio_jitsumu_jisseki_v6.html">Ch.1 実務実績</a>
+    <a class="nav-a" href="chapter2_v6.html">Ch.2 広報・ブランド</a>
+    <a class="nav-a" href="chapter3_v6.html">Ch.3 企画書</a>
+    <a class="nav-a" href="chapter4_v6.html">Ch.4 個人活動</a>
+  </div>
+</nav>
+
+<section class="cover">
+  <div class="cover-left">
+    <p class="cover-eyebrow">Portfolio — Project Documentation</p>
+    <h1 class="cover-title-jp">北杜市<br>新進気鋭作家<br>企画展<br>プロジェクト</h1>
+    <p class="cover-title-en">Contemporary Art Exhibition — Hokuto City</p>
+    <div class="cover-meta">
+      <p class="cover-meta-item">ROLE<span>企画立案 / 予算管理 / 進行・設営ディレクション</span></p>
+      <p class="cover-meta-item">PERIOD<span>2025年2月 — 2025年8月</span></p>
+      <p class="cover-meta-item">BUDGET<span>約¥1,200,000</span></p>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-number">01</div>
+    <p class="cover-concept-label">Project Concept</p>
+    <p class="cover-concept-text">地域の現代アート熱を牽引し、閑散期を「新たなファン層開拓の契機」へと転換する</p>
+    <div class="cover-result-bar">
+      <div>
+        <div class="result-kpi"><span class="result-kpi-number">1.75</span><span class="result-kpi-unit">倍</span></div>
+        <span class="result-kpi-label">入館人数（平年同月比）</span>
+      </div>
+      <div>
+        <div class="result-kpi"><span class="result-kpi-number">+1</span><span class="result-kpi-unit">ヶ月</span></div>
+        <span class="result-kpi-label">会期延長（圧倒的反響により）</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider-strong"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <div><p class="section-label">Project Summary</p><h2 class="section-title">企画趣旨</h2></div>
+    </div>
+    <div class="concept-body reveal">
+      <div><p class="concept-side-label">Hokuto City<br>Museum of Art<br><br>Contemporary<br>Art Exhibition<br><br>Feb — Aug<br>2025</p></div>
+      <div>
+        <p class="concept-pull-quote">閑散期を「新たなファン層開拓の契機」へ転換する——<br>桜シーズン終了後の空白を、現代アートが埋める。</p>
+        <p class="concept-body-text">当財団は北杜市において建築・アートの両面で重要な歴史を持つ。近年、同エリアに現代アート特化の複合施設が誕生し、若年層の流入が高まっているトレンドを活かし、桜シーズン終了後の閑散期に新進気鋭作家による現代アート展を企画立案。強力なカンフル剤として新規来館者の獲得を戦略的に狙った。企画立案から予算管理・設営ディレクションまで、プロジェクト全体を一貫して統括した。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="section results-section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <div><p class="section-label">Outcome &amp; ROI</p><h2 class="section-title">成果</h2></div>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <p class="result-card-en">Visitor Increase</p>
+        <p class="result-card-number">1.75<span class="result-card-unit">×</span></p>
+        <p class="result-card-desc">入館人数 平年同月比<br>圧倒的な集客力で閑散期の来館者数を塗り替えた。</p>
+      </div>
+      <div class="result-card">
+        <p class="result-card-en">Extended Exhibition</p>
+        <p class="result-card-number">+<sup>約</sup>1<span class="result-card-unit">ヶ月</span></p>
+        <p class="result-card-desc">会期延長（〜8月3日まで）<br>反響の大きさにより、当初予定を超えて会期延長を決定。</p>
+      </div>
+      <div class="result-card">
+        <p class="result-card-en">Budget Optimization</p>
+        <p class="result-card-number">¥25<span class="result-card-unit">万</span></p>
+        <p class="result-card-desc">交渉による作品費圧縮・余剰創出<br>ギャラリー経由の販売価格から直接交渉へ切り替えることで、ギャラリー手数料分に相当する約25万円の余剰を創出。作家もギャラリー経由より高い手取り額で合意。余剰分は設営・広報・制作支援に再投資した。</p>
+      </div>
+      <div class="result-card">
+        <p class="result-card-en">Crisis Response</p>
+        <p class="result-card-number">0<span class="result-card-unit">件</span></p>
+        <p class="result-card-desc">重大インシデント・遅延なし<br>3件のイレギュラーを即時解決し、会期・品質・ブランド毀損をゼロに抑えた。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <div><p class="section-label">Budget Operation</p><h2 class="section-title">予算執行</h2></div>
+    </div>
+    <div class="budget-layout reveal">
+      <div>
+        <div class="budget-total-block">
+          <p class="budget-total-label">Total Budget</p>
+          <p class="budget-total-num">約120<span class="budget-total-unit">万円</span></p>
+          <p style="font-size:.78rem;color:rgba(26,23,20,.45);margin-top:8px;letter-spacing:.05em;">本予算約100万円 + 予備費約20万円</p>
+        </div>
+        <div style="margin-top:20px;padding:18px 20px;border-left:2px solid var(--accent);background:rgba(122,58,16,.04);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Budget Note — 約25万円の圧縮</p>
+          <p style="font-size:.8rem;line-height:1.95;color:rgba(26,23,20,.68);">作品買い上げはギャラリー経由の展示価格を参考に予算を確保していたが、直接交渉によりギャラリーの取り分（手数料分）がそのまま圧縮できた。作家側も手取り増となる着地金額に納得しており、結果として当初予算比で約25万円の余剰が発生。この余剰を滞在制作支援・安全対策・プロモーション強化へ再投資した。</p>
+        </div>
+        <div class="budget-bars">
+          <div><div class="budget-bar-header"><span class="budget-bar-name">作品買い上げ費（交渉後）</span><span class="budget-bar-value">約75万円</span></div><div class="budget-bar-track"><div class="budget-bar-fill" style="width:62.5%"></div></div></div>
+          <div><div class="budget-bar-header"><span class="budget-bar-name">滞在制作支援</span><span class="budget-bar-value">約10〜13万円</span></div><div class="budget-bar-track"><div class="budget-bar-fill" style="width:10.8%;animation-delay:.1s"></div></div></div>
+          <div><div class="budget-bar-header"><span class="budget-bar-name">プロモーション強化</span><span class="budget-bar-value">約8万円</span></div><div class="budget-bar-track"><div class="budget-bar-fill" style="width:6.7%;animation-delay:.2s"></div></div></div>
+          <div><div class="budget-bar-header"><span class="budget-bar-name">会場設営・安全対策</span><span class="budget-bar-value">約4万円</span></div><div class="budget-bar-track"><div class="budget-bar-fill" style="width:3.3%;animation-delay:.3s"></div></div></div>
+        </div>
+      </div>
+      <div>
+        <p class="reinvest-label">余剰約25万円の再投資先</p>
+        <div class="reinvest-item"><span class="reinvest-index">i.</span><div class="reinvest-title">作家滞在制作支援<small>現地での質の高い制作環境を担保し、作品クオリティを最大化。</small></div><span class="reinvest-amount">約10〜13万</span></div>
+        <div class="reinvest-item"><span class="reinvest-index">ii.</span><div class="reinvest-title">会場設営・安全対策<small>7×9m大型作品に対応した高所作業機材等を調達。</small></div><span class="reinvest-amount">約4万</span></div>
+        <div class="reinvest-item"><span class="reinvest-index">iii.</span><div class="reinvest-title">プロモーション強化<small>デザイン・印刷・広報準備への充当。ブランド再印刷費も含む。</small></div><span class="reinvest-amount">約8万</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="section crisis-section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <div><p class="section-label">Crisis Management</p><h2 class="section-title">危機管理</h2></div>
+    </div>
+    <div class="crisis-timeline reveal">
+      <div class="crisis-item">
+        <p class="crisis-item-phase">Phase 2 — 制作・広報期</p>
+        <h3 class="crisis-item-title">施工計画の緊急変更</h3>
+        <p class="crisis-item-body">作家より、当初の想定（約2〜3m規模）から7×9mの大型作品になるとの連絡を受け、即座に施工計画を見直し。高所作業用設備の調達へ迅速に動き、設営品質と安全性を確保した。</p>
+      </div>
+      <div class="crisis-item">
+        <p class="crisis-item-phase">Phase 3 — 設営当日</p>
+        <h3 class="crisis-item-title">機材トラブルの即時解決</h3>
+        <p class="crisis-item-body">搬入当日、高所作業用の二連梯子の破損が報告される。即座に選択肢を絞り込み、人脈を活かした交渉で当日中に解決。</p>
+        <div class="decision-flow">
+          <div class="df-step">
+            <p class="df-step-label">発生</p>
+            <p class="df-step-head">梯子の破損報告</p>
+            <p class="df-step-body">搬入当日、高所作業用二連梯子の破損が判明。大型作品（7×9m）の施工に不可欠な機材が使用不能に。</p>
+            <div class="df-arrow"></div>
+          </div>
+          <div class="df-step">
+            <p class="df-step-label">判断</p>
+            <p class="df-step-head">代替手段の優先順位づけ</p>
+            <p class="df-step-body">① 館内・近隣施設で代替品を即時捜索→不在。② 新規購入は当日納品不可と判断。③「確実に持っている業者」への直接交渉へ切り替え。</p>
+            <div class="df-arrow"></div>
+          </div>
+          <div class="df-step">
+            <p class="df-step-label">行動</p>
+            <p class="df-step-head">近隣建築会社へ直接交渉</p>
+            <p class="df-step-body">「ぶしつけなお願い」と断りながら事情を説明。会社としての貸し出しは難しいとのことだったが、担当者個人として快諾いただき、当日中に確保。</p>
+            <div class="df-arrow"></div>
+          </div>
+          <div class="df-step df-outcome">
+            <p class="df-step-label">着地</p>
+            <p class="df-step-head">遅延ゼロで施工完遂</p>
+            <p class="df-step-body">スケジュール遅延なく搬入・施工を完了。後日、菓子折りを持参してお礼の挨拶に伺い、関係を丁寧に締めた。</p>
+            <div class="df-arrow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="crisis-item">
+        <p class="crisis-item-phase">Phase 3 — 広報物管理</p>
+        <h3 class="crisis-item-title">ブランド毀損の未然回避</h3>
+        <p class="crisis-item-body">広報物（チラシ）に作家がすべてサインをしてしまうトラブルが発生。美術館のブランドレギュレーションを守るため即座に回収を判断。予備費を投入して特急で再印刷（300部）をかけ、4日後に関係機関へ再配布を完了した。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">05</span>
+      <div><p class="section-label">Project Schedule</p><h2 class="section-title">工程表</h2></div>
+    </div>
+    <div class="reveal">
+      <div class="gantt-scroll">
+        <table class="gantt-table">
+          <colgroup>
+            <col style="width:180px"><col style="width:88px"> <col style="width:6.5%"><col style="width:6.5%"><col style="width:6.5%">
+            <col style="width:7%">  <col style="width:5%">  <col style="width:6.5%">
+            <col style="width:6.5%"><col style="width:6.5%">
+            <col style="width:5%">  <col style="width:5%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="th-task">タスク</th>
+              <th class="th-date">時期</th>
+              <th>2月上</th><th>2月中</th><th>2月下</th>
+              <th>3〜4月</th><th>4/18</th><th>4月下</th>
+              <th>5/1〜3</th><th>5月上</th>
+              <th>6/27</th><th>8/4</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 1</span><br><span class="g-task-name">企画立案・予算算出</span></td>
+              <td class="g-task-cell g-date">2025年2月上旬</td>
+              <td class="g-bar-cell"><div class="g-bar p1"></div></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">閑散期（桜シーズン後）の来館者数低迷という課題を受け、企画を立案。予算約120万円（本予算約100万円＋予備費約20万円）を確保。→ この予算枠が次フェーズの作家交渉の土台となる。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 1</span><br><span class="g-task-name">作家交渉・契約締結</span></td>
+              <td class="g-task-cell g-date">2025年2月中旬</td>
+              <td></td>
+              <td class="g-bar-cell"><div class="g-bar p1"></div></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">企画立案で確保した予算を元に作家交渉へ。ギャラリー経由の展示価格から直接交渉に切り替えることで、ギャラリー手数料分に相当する約25万円の余剰を創出。作家側も手取り増で合意。→ この余剰が以降の制作支援・安全対策・プロモーションへ再投資される原資となる。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 1</span><br><span class="g-task-name">レギュレーション策定</span></td>
+              <td class="g-task-cell g-date">2025年2月下旬</td>
+              <td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p1"></div></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">作家と締結した契約に続き、美術館利用規約・ブランドレギュレーションを共有し認識を統一。→ この段階での意識統制が不十分だったことが後のチラシサイン問題（Crisis ③）の遠因となり、事前共有の重要性が証明された。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 2</span><br><span class="g-task-name">滞在制作インフラ整備</span></td>
+              <td class="g-task-cell g-date">2025年3〜4月</td>
+              <td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p2"></div></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">作家交渉で生まれた余剰約25万円の一部（約10〜13万円）を制作環境整備へ充当。滞在制作という提案があったからこそ必要なフェーズ。→ 制作環境の充実が、後の7×9m大型作品誕生につながる。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 2</span><br><span class="g-task-name">広報物デザイン入稿</span></td>
+              <td class="g-task-cell g-date">2025年4月18日</td>
+              <td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p2"></div></td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">余剰予算の一部（約8万円）をプロモーションへ充当。neucitoraへ発注し、チラシデザイン・印刷を手配。→ このチラシが後の無断サイン問題（Crisis ③）の対象となるが、ブランドレギュレーション共有の実施があったにも関わらず発生した点が教訓となる。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 2</span><br><span class="g-task-name">施工計画の緊急変更 ⚡</span></td>
+              <td class="g-task-cell g-date">2025年4月下旬</td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p2"></div></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble"><span class="crisis-tag">Crisis ①</span>滞在制作フェーズで作家が当初想定（約2〜3m）から7×9mへ規模を拡大。制作支援への投資が作品の大型化を可能にした一方、施工計画の全面見直しが必要に。安全対策費約4万円（余剰から充当）を確保。→ 大型機材の手配がCrisis ②の伏線となる。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 3</span><br><span class="g-task-name">搬入・空間構築 ⚡</span></td>
+              <td class="g-task-cell g-date">2025年5月1〜3日</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p3"></div></td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble"><span class="crisis-tag">Crisis ②</span>Crisis①で調達した高所作業用二連梯子が搬入当日に破損。代替品の館内捜索→不在→新規購入は当日納品不可→近隣建築会社へ個人ベースで借用交渉という意思決定を即断。交渉が功を奏し当日確保、遅延ゼロで施工完遂。→ 緊急時の人脈と判断速度がプロジェクト全体の品質を守った。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 3</span><br><span class="g-task-name">広報物リカバリー ⚡</span></td>
+              <td class="g-task-cell g-date">2025年5月上旬</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p3"></div></td>
+              <td></td><td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble"><span class="crisis-tag">Crisis ③</span>搬入施工と並行して進む広報物管理でトラブル発生。P1-3のレギュレーション共有にも関わらず、作家がチラシ全部にサインしてしまい即回収を判断。予備費を投入して特急再印刷（300部）、4日後に関係機関へ再配布完了。→ 「予防策を打っても想定外は起きる」という経験として事後の危機対応フロー見直しに活かされた。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 4</span><br><span class="g-task-name">会期延長の決定</span></td>
+              <td class="g-task-cell g-date">2025年6月27日</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p4"></div></td>
+              <td></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">3件のCrisis対応を全て遅延・品質低下なく乗り越えた結果、展覧会は入館人数が平年同月比約1.75倍を記録。圧倒的反響により会期延長（8月3日まで）が決定。→ プロジェクト初期の「閑散期を起点に新ファン層を開拓する」という戦略目標が達成された。</div>
+              </td>
+            </tr>
+
+            <tr class="g-task-row">
+              <td class="g-task-cell col-name"><span class="g-phase-badge">Phase 4</span><br><span class="g-task-name">安全撤収・作品管理</span></td>
+              <td class="g-task-cell g-date">2025年8月4日</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="g-bar-cell"><div class="g-bar p4"></div></td>
+            </tr>
+            <tr class="g-bubble-row">
+              <td colspan="12" class="g-bubble-td">
+                <div class="g-bubble">大型作品群の移管・機材返却を無事故で完遂。プロジェクト全フェーズを安全に完了。</div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="gantt-legend">
+        <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#7a3010"></div>Phase 1 企画・アサイン</div>
+        <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#a05025"></div>Phase 2 制作・広報</div>
+        <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#c87848"></div>Phase 3 設営・危機管理</div>
+        <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#b09070"></div>Phase 4 成果・会期延長</div>
+        <div class="gantt-legend-item">⚡ Crisis対応</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="section flyer-section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-num">06</span>
+      <div><p class="section-label">Exhibition Flyer</p><h2 class="section-title">チラシ</h2></div>
+    </div>
+    <div class="flyer-grid reveal">
+      <div class="flyer-card">
+        <img src="data:image/jpeg;base64,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
