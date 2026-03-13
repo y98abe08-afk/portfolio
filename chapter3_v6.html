@@ -29,10 +29,10 @@
 
   /* HERO */
   .hero{margin-top:48px;background:var(--green);padding:64px 72px 56px;}
-  .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.68rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px;opacity:0;animation:fadeUp .6s .1s forwards;}
-  .hero-title{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(2rem,5vw,4rem);color:#fff;line-height:1.1;letter-spacing:0.05em;opacity:0;animation:fadeUp .7s .2s forwards;}
-  .hero-sub{font-family:'Shippori Mincho',serif;font-weight:400;font-size:0.9rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-top:16px;opacity:0;animation:fadeUp .7s .3s forwards;}
-  .hero-tagline{font-size:0.82rem;color:rgba(255,255,255,0.38);margin-top:10px;letter-spacing:0.06em;opacity:0;animation:fadeUp .7s .4s forwards;}
+  .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.68rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px;}
+  .hero-title{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(2rem,5vw,4rem);color:#fff;line-height:1.1;letter-spacing:0.05em;}
+  .hero-sub{font-family:'Shippori Mincho',serif;font-weight:400;font-size:0.9rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-top:16px;}
+  .hero-tagline{font-size:0.82rem;color:rgba(255,255,255,0.38);margin-top:10px;letter-spacing:0.06em;}
 
   /* LAYOUT */
   .section{padding:72px 0;}
@@ -58,7 +58,6 @@
   .meta-val:last-child{margin-bottom:0;}
 
   /* SLIDE VIEWER */
-  .slide-viewer{}
   .slide-nav{display:flex;gap:0;border-bottom:2px solid var(--rule-strong);margin-bottom:40px;overflow-x:auto;scrollbar-width:none;}
   .slide-nav::-webkit-scrollbar{display:none;}
   .slide-btn{
@@ -73,12 +72,22 @@
   .slide-panel{display:none;}
   .slide-panel.on{display:block;}
 
+  /* ▼▼▼ ここが巨大化を防ぐための最重要修正箇所 ▼▼▼ */
   .slide-img-wrap{
+    width: 100%;
     background:#1a2a1e;
     border:1px solid var(--rule);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* プレゼン資料のような影 */
+    border-radius: 6px; /* 角丸で洗練された印象に */
     overflow:hidden;
   }
-  .slide-img{width:100%;display:block;}
+  .slide-img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* ▲▲▲ ▲▲▲ */
 
   /* スライドごとの解説テキスト */
   .slide-caption{
@@ -88,24 +97,6 @@
   }
   .slide-caption strong{color:var(--ink);font-weight:600;}
 
-  /* FOOTER */
-  .foot{background:var(--ink);padding:40px 72px;display:flex;justify-content:space-between;align-items:center;}
-  .foot-l{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:rgba(255,255,255,.28);}
-  .foot-r{font-size:.62rem;letter-spacing:.18em;color:rgba(255,255,255,.2);text-align:right;line-height:2.3;}
-
-  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s;}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-
-  @media(max-width:780px){
-    .nav{padding:0 16px;}
-    .hero{padding:48px 24px;}
-    .inner{padding:0 24px;}
-    .intro-grid{grid-template-columns:1fr;gap:32px;}
-    .foot{flex-direction:column;gap:14px;padding:32px 24px;}
-    .foot-r{text-align:center;}
-  }
-
   /* WHY KAYAC */
   .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);}
   .why-card{background:var(--pale);padding:36px 28px;}
@@ -113,6 +104,20 @@
   .why-title{font-family:'Shippori Mincho',serif;font-weight:800;font-size:0.9rem;letter-spacing:0.04em;line-height:1.7;margin-bottom:14px;border-left:3px solid var(--amber);padding-left:14px;}
   .why-body{font-size:0.81rem;line-height:2.1;color:rgba(30,28,26,0.68);}
 
+  /* FOOTER */
+  .foot{background:var(--ink);padding:40px 72px;display:flex;justify-content:space-between;align-items:center;}
+  .foot-l{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:rgba(255,255,255,.28);}
+  .foot-r{font-size:.62rem;letter-spacing:.18em;color:rgba(255,255,255,.2);text-align:right;line-height:2.3;}
+
+  @media(max-width:780px){
+    .nav{padding:0 16px;}
+    .hero{padding:48px 24px;}
+    .inner{padding:0 24px;}
+    .intro-grid{grid-template-columns:1fr;gap:32px;}
+    .why-grid{grid-template-columns:1fr;}
+    .foot{flex-direction:column;gap:14px;padding:32px 24px;}
+    .foot-r{text-align:center;}
+  }
 </style>
 </head>
 <body>
